@@ -4,7 +4,7 @@ import Layout from 'components/Layout';
 
 const Index = () => (
   <Layout>
-    <p>Hello Next.js</p>
+    <p>Hello Checkers</p>
   </Layout>
 );
 Index.displayName = 'Index';
