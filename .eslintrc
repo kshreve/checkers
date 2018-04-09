@@ -1,0 +1,19 @@
+{
+    "extends": "airbnb",
+    "rules":   {
+        "semi":                    "error",
+        "no-multiple-empty-lines": [
+            "error",
+            {
+                "max":    2,
+                "maxEOF": 0
+            }
+        ],
+        "import/extensions":       [
+            "never"
+        ],
+        "import/no-unresolved": [
+            "never"
+        ]
+    }
+}

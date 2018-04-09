@@ -1,0 +1,33 @@
+{
+  "name": "checkers",
+  "version": "1.0.0",
+  "description": "checkers",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "next start -p $PORT",
+    "build": "next build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-plugin-module-resolver": "^3.1.1",
+    "express": "^4.16.3",
+    "isomorphic-unfetch": "^2.0.0",
+    "next": "^5.1.0",
+    "npm": "^5.8.0",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "react-markdown": "^3.3.0",
+    "styled-jsx": "^2.2.6"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0"
+  }
+}
