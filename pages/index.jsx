@@ -1,14 +1,15 @@
 import React, { Fragment } from 'react';
 
 import Layout from 'components/Layout';
-
-const giraffe = require('assets/giraffe.jpg');
+import Checkerboard from 'components/Checkerboard';
 
 const Index = () => (
   <Fragment>
     <Layout>
-      <p className="content">Hello Checkers</p>
-      <img className="full-bleed" alt="giraffe" src={giraffe} />
+      <div className="content">
+        <p>Hello Checkers</p>
+        <Checkerboard size={10} />
+      </div>
     </Layout>
   </Fragment>
 );
