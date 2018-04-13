@@ -1,9 +1,11 @@
 import React, { Fragment } from 'react';
 import Anchor from 'components/Anchor';
 
-const Header = () => (
+const Header = props => (
   <Fragment>
-    <Anchor to="/" text="Home" />
+    <header {...props}>
+      <Anchor to="/" text="Home" />
+    </header>
   </Fragment>
 );
 Header.displayName = 'Header';

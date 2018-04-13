@@ -4,7 +4,6 @@ import flush from 'styled-jsx/server';
 
 // _document is only rendered on the server side and not on the client side
 // Event handlers like onClick can't be added to this file
-
 export default class Document extends NextDocument {
   static getInitialProps({ renderPage }) {
     const {
