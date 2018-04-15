@@ -28,6 +28,7 @@ const Layout = props => (
 
       .content {
         grid-column: content;
+        text-align: center;
       }
     `}
     </style>

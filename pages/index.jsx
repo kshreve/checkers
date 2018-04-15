@@ -5,9 +5,16 @@ import Checkerboard from 'components/Checkerboard';
 
 const Index = () => (
   <Fragment>
+    {/* language=SCSS */}
+    <style jsx>{`
+      .heading {
+        text-align: center;
+      }
+    `}
+    </style>
     <Layout>
       <div className="content">
-        <p>Hello Checkers</p>
+        <h1 className="heading">Hello Checkers</h1>
         <Checkerboard size={10} />
       </div>
     </Layout>

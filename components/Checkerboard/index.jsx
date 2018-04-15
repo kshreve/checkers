@@ -6,9 +6,12 @@ import Square from 'components/Checkerboard/Square';
 
 const makeBoard = (size) => {
   const arr = [...new Array(size * size)];
-  const board = arr.map((item, index) => <Square key={index} index={index} />);
 
-  return board;
+  return arr.map((item, index) => (<Square
+    key={index}
+    row={Math.floor(index / size)}
+    index={index}
+  />));
 };
 
 const Checkerboard = ({ size }) => (
