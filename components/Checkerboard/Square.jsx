@@ -9,27 +9,20 @@ const Square = ({ index, row }) => (
     {/* language=SCSS */}
     <style jsx>{`
       .square {
-        min-width: 30px;
-        min-height: 30px;
         display: flex;
         justify-content: center;
         align-items: center;
+        background: ${primaryColor};
+        color: ${secondaryColor};
+        text-align: center;
       }
 
-      .square-even {
-        text-align: center;
-        background: ${index % 2 === 0 ? primaryColor : secondaryColor};
-        color: ${index % 2 === 0 ? secondaryColor : primaryColor};
+      .square:nth-child(2n+${row}) {
+        background: ${secondaryColor};
+        color: ${primaryColor};
       }
-
-      .square-odd {
-        text-align: center;
-        background: ${index % 2 === 0 ? secondaryColor : primaryColor};
-        color: ${index % 2 === 0 ? primaryColor : secondaryColor};
-      }
-    `}
-    </style>
-    <div className={`square ${row % 2 === 0 ? 'square-even' : 'square-odd'}`}>
+  `}</style>
+    <div className="square">
       {index}
     </div>
   </Fragment>
