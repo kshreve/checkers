@@ -18,13 +18,6 @@ const Checkerboard = ({ size }) => (
   <Fragment>
     {/* language=SCSS */}
     <style jsx>{`
-      .grid,
-      .align-full {
-        display: grid;
-        grid-auto-flow: column;
-        grid-template-columns: minmax(1em, 1fr);
-      }
-
       .checkerboard {
         display: grid;
         grid-template-columns: repeat(${size}, 1fr);

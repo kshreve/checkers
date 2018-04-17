@@ -1,10 +1,17 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import Head from 'next/head';
 
+import reset from 'assets/reset';
 import Header from 'components/Header';
 
 const Layout = props => (
   <Fragment>
+    <Head>
+      <style global key="reset">
+        ${reset}
+      </style>
+    </Head>
     {/* language=SCSS */}
     <style jsx global>{`
       .grid,
