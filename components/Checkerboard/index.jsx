@@ -21,10 +21,9 @@ const Checkerboard = ({ size }) => (
       .checkerboard {
         display: grid;
         grid-template-columns: repeat(${size}, 1fr);
-        grid-template-rows: repeat(${size}, 1fr);
-        max-width: 530px;
         margin: 0 auto 10px auto;
         border: 1px solid ${secondaryColor};
+        max-width: 650px;
       }
     `}
     </style>
