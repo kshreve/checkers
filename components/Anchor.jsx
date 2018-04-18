@@ -2,7 +2,9 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 
-const Anchor = ({ to, text, ...rest }) => (
+const Anchor = ({
+  to, text, as, ...rest
+}) => (
   <Fragment>
     <style jsx>{`
       a {
@@ -10,7 +12,7 @@ const Anchor = ({ to, text, ...rest }) => (
       }
     `}
     </style>
-    <Link prefetch href={to}>
+    <Link prefetch href={to} as={as}>
       <a href={to} {...rest}>{text}</a>
     </Link>
   </Fragment>
@@ -19,6 +21,10 @@ const Anchor = ({ to, text, ...rest }) => (
 Anchor.propTypes = {
   to: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
+  as: PropTypes.string,
+};
+Anchor.defaultProps = {
+  as: null,
 };
 
 export default Anchor;
