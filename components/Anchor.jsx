@@ -13,7 +13,7 @@ const Anchor = ({
     `}
     </style>
     <Link prefetch href={to} as={as}>
-      <a href={to} {...rest}>{text}</a>
+      <a href={as || to} {...rest}>{text}</a>
     </Link>
   </Fragment>
 );

@@ -24,7 +24,7 @@ Checkers.defaultProps = {
 Checkers.getInitialProps = async (context) => {
   const { size } = context.query;
 
-  return { size };
+  return { size: parseInt(size, 10) };
 };
 
 export default Checkers;
