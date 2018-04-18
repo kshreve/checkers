@@ -1,10 +1,9 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-const primaryColor = 'white';
-const secondaryColor = 'black';
+import { primaryColor, secondaryColor } from 'assets/colors';
 
-const Square = ({ index, row }) => (
+const Square = ({ row }) => (
   <Fragment>
     {/* language=SCSS */}
     <style jsx>{`
@@ -15,6 +14,7 @@ const Square = ({ index, row }) => (
         background: ${primaryColor};
         color: ${secondaryColor};
         text-align: center;
+        padding: 50% 0;
       }
 
       .square:nth-child(2n+${row}) {
@@ -22,14 +22,11 @@ const Square = ({ index, row }) => (
         color: ${primaryColor};
       }
   `}</style>
-    <div className="square">
-      {index}
-    </div>
+    <div className="square" />
   </Fragment>
 );
 Square.displayName = 'Square';
 Square.propTypes = {
-  index: PropTypes.number.isRequired,
   row: PropTypes.number.isRequired,
 };
 

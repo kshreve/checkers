@@ -3,6 +3,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import Square from 'components/Checkerboard/Square';
+import { secondaryColor } from 'assets/colors';
 
 const makeBoard = (size) => {
   const arr = [...new Array(size * size)];
@@ -10,7 +11,6 @@ const makeBoard = (size) => {
   return arr.map((item, index) => (<Square
     key={index}
     row={Math.floor(index / size)}
-    index={index}
   />));
 };
 
@@ -22,7 +22,9 @@ const Checkerboard = ({ size }) => (
         display: grid;
         grid-template-columns: repeat(${size}, 1fr);
         grid-template-rows: repeat(${size}, 1fr);
-        margin-bottom: 10px;
+        max-width: 530px;
+        margin: 0 auto 10px auto;
+        border: 1px solid ${secondaryColor};
       }
     `}
     </style>

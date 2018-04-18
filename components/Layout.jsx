@@ -18,7 +18,7 @@ const Layout = props => (
       .align-full {
         display: grid;
         grid-auto-flow: column;
-        grid-template-columns: [full-start] minmax(1em, 1fr) [wide-start] minmax(0, 1fr) [content-start] minmax(0, 55rem) [content-end] minmax(0, 1fr) [wide-end] minmax(1em, 1fr) [full-end];
+        grid-template-columns: [full-start] minmax(3em, 1fr) [wide-start] minmax(0, 1fr) [content-start] minmax(0, 55rem) [content-end] minmax(0, 1fr) [wide-end] minmax(1em, 1fr) [full-end];
       }
 
       .main {
@@ -37,10 +37,14 @@ const Layout = props => (
         grid-column: content;
         text-align: center;
       }
+
+      .sidebar {
+        grid-column: full-start/wide-start;
+      }
     `}
     </style>
     <section className="main grid">
-      <Header className="content" />
+      <Header className="sidebar" />
       {props.children}
     </section>
   </Fragment>
