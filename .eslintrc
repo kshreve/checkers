@@ -12,8 +12,9 @@
         "import/extensions":       [
             "never"
         ],
-        "import/no-unresolved": [
+        "import/no-unresolved":    [
             "never"
         ]
-    }
+    },
+    "parser":  "babel-eslint"
 }
