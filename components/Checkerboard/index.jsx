@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import Square from 'components/Checkerboard/Square';
-import { secondaryColor } from 'assets/colors';
+import { gridLines } from 'assets/colors';
 
 const makeBoard = (size) => {
   const arr = [...new Array(size * size)];
@@ -22,8 +22,8 @@ const Checkerboard = ({ size }) => (
         display: grid;
         grid-template-columns: repeat(${size}, 1fr);
         margin: 0 auto 10px auto;
-        border: 1px solid ${secondaryColor};
-        max-width: 650px;
+        border: 2px solid ${gridLines};
+        max-width: 640px;
       }
     `}
     </style>
