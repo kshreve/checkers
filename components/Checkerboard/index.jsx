@@ -20,6 +20,17 @@ export default class Checkerboard extends Component {
     size: PropTypes.number.isRequired,
   };
 
+  static getDerivedStateFromProps({ size }, { checkerboard }) {
+    let state = {};
+    if (checkerboard.length !== (size * size)) {
+      state = Object.assign({}, state, {
+        checkerboard: makeBoard(size),
+      });
+    }
+
+    return state;
+  }
+
   constructor(props) {
     super(props);
 
