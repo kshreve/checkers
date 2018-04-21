@@ -20,11 +20,13 @@ export default class Checkerboard extends Component {
     size: PropTypes.number.isRequired,
   };
 
-  static getDerivedStateFromProps({ size }, { checkerboard }) {
+  static getDerivedStateFromProps({ size }, prevState) {
     let state = {};
-    if (checkerboard.length !== (size * size)) {
+
+    if (prevState.size !== size) {
       state = Object.assign({}, state, {
         checkerboard: makeBoard(size),
+        size,
       });
     }
 
@@ -36,12 +38,12 @@ export default class Checkerboard extends Component {
 
     this.state = {
       checkerboard: makeBoard(props.size),
+      size: props.size,
     };
   }
 
   render() {
-    const { size } = this.props;
-    const { checkerboard } = this.state;
+    const { checkerboard, size } = this.state;
 
     return (
       <Fragment>
