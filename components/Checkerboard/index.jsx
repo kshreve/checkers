@@ -3,16 +3,46 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import Square from 'components/Checkerboard/Square';
+import Checker from 'components/Checkerboard/Checker';
 import { gridLines } from 'assets/colors';
 
-const makeBoard = (size) => {
-  const arr = [...new Array(size * size)];
+const addSquares = (gridArray, size) => gridArray.map((item, index) => (<Square
+  key={index}
+  column={index % size}
+  row={Math.floor(index / size)}
+/>));
 
-  return arr.map((item, index) => (<Square
-    key={index}
-    row={Math.floor(index / size)}
-  />));
+const addCheckers = (gridArray, size) => {
+  const checkers = gridArray.map((item, index) => {
+    let checker = null;
+    const row = Math.floor(index / size);
+    const firstPlayer = (row < 3);
+    const secondPlayer = (row >= size - 3);
+
+    if ((firstPlayer || secondPlayer) &&
+      ((row % 2 === 0 && index % 2) || (row % 2 === 1 && index % 2 === 0))) {
+      checker = (<Checker
+        key={index}
+        column={index % size}
+        row={row}
+      />);
+    }
+
+    return checker;
+  });
+
+  return checkers;
 };
+
+const getInitialBoard = (size) => {
+  const gridArray = [...new Array(size * size)];
+
+  return {
+    checkerboard: addSquares(gridArray, size),
+    checkers: addCheckers(gridArray, size),
+  };
+};
+
 
 export default class Checkerboard extends Component {
   static displayName = 'Checkerboard';
@@ -25,7 +55,7 @@ export default class Checkerboard extends Component {
 
     if (prevState.size !== size) {
       state = Object.assign({}, state, {
-        checkerboard: makeBoard(size),
+        ...getInitialBoard(size),
         size,
       });
     }
@@ -37,19 +67,19 @@ export default class Checkerboard extends Component {
     super(props);
 
     this.state = {
-      checkerboard: makeBoard(props.size),
+      ...getInitialBoard(props.size),
       size: props.size,
     };
   }
 
   render() {
-    const { checkerboard, size } = this.state;
+    const { checkerboard, checkers, size } = this.state;
 
     return (
       <Fragment>
         {/* language=SCSS */}
         <style jsx>{`
-          .checkerboard {
+          .checkerboard-grid {
             display: grid;
             grid-template-columns: repeat(${size}, 1fr);
             margin: 0 auto 10px auto;
@@ -58,8 +88,9 @@ export default class Checkerboard extends Component {
           }
         `}
         </style>
-        <div className="checkerboard">
+        <div className="checkerboard-grid">
           {checkerboard}
+          {checkers}
         </div>
       </Fragment>
     );
