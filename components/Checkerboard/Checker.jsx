@@ -1,15 +1,25 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-const Checker = ({ row, column }) => (
+import { primaryColor, secondaryColor } from 'assets/colors';
+
+
+const Checker = ({
+  row, column, firstPlayer, secondPlayer,
+}) => (
   <Fragment>
     {/* language=SCSS */}
     <style jsx>{`
       .checker {
-        background-color: white;
+        border-color: white;
+        border-style: solid;
+        border-width: medium;
         border-radius: 100px;
         grid-column: ${column + 1};
         grid-row: ${row + 1};
+
+        background-color: ${firstPlayer && primaryColor};
+        background-color: ${secondPlayer && secondaryColor};
       }
     `}
     </style>
@@ -17,9 +27,15 @@ const Checker = ({ row, column }) => (
   </Fragment>
 );
 Checker.displayName = 'Checker';
+Checker.defaultProps = {
+  firstPlayer: true,
+  secondPlayer: false,
+};
 Checker.propTypes = {
   row: PropTypes.number.isRequired,
   column: PropTypes.number.isRequired,
+  firstPlayer: PropTypes.bool,
+  secondPlayer: PropTypes.bool,
 };
 
 export default Checker;
