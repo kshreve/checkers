@@ -1,5 +1,5 @@
-import React, { Fragment } from "react";
-import PropTypes from "prop-types";
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 const Checker = ({ row, column }) => (
   <Fragment>
@@ -7,7 +7,7 @@ const Checker = ({ row, column }) => (
     <style jsx>{`
       .checker {
         background-color: white;
-        border-radius: 50px;
+        border-radius: 100px;
         grid-column: ${column + 1};
         grid-row: ${row + 1};
       }
@@ -16,7 +16,7 @@ const Checker = ({ row, column }) => (
     <div className="checker" />
   </Fragment>
 );
-Checker.displayName = "Checker";
+Checker.displayName = 'Checker';
 Checker.propTypes = {
   row: PropTypes.number.isRequired,
   column: PropTypes.number.isRequired,
