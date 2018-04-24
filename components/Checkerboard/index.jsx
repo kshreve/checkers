@@ -14,9 +14,17 @@ const addSquares = (gridArray, size) => gridArray.map((item, index) => (<Square
 
 const addCheckers = (gridArray, size) => gridArray.map((item, index) => {
   let checker = null;
+  let rowsOfCheckers = 3;
+
+  if (size <= 6 && size > 4) {
+    rowsOfCheckers = 2;
+  } else if (size === 4) {
+    rowsOfCheckers = 1;
+  }
+
   const row = Math.floor(index / size);
-  const firstPlayer = (row < 3);
-  const secondPlayer = (row >= size - 3);
+  const firstPlayer = (row < rowsOfCheckers);
+  const secondPlayer = (row >= size - rowsOfCheckers);
 
   if (
     (firstPlayer || secondPlayer) &&
