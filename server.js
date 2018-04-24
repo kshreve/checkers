@@ -16,7 +16,13 @@ app.prepare()
       const actualPage = '/checkers';
 
       // Round to the nearest even number
-      const size = Math.ceil(parseInt(req.params.size, 10) / 2) * 2;
+      let size = Math.ceil(parseInt(req.params.size, 10) / 2) * 2;
+
+      if (size < 4) {
+        size = 4;
+      } else if (size > 30) {
+        size = 30;
+      }
 
       const queryParams = { size };
       app.render(req, res, actualPage, queryParams);
