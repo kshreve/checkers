@@ -8,7 +8,7 @@ import Header from 'components/Header';
 const Layout = props => (
   <Fragment>
     <Head>
-      <style global key="reset">
+      <style key="reset">
         ${reset}
       </style>
     </Head>
