@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import Square from 'components/Checkerboard/Square';
 import Checker from 'components/Checkerboard/Checker';
+import MousePositionContext from 'components/Checkerboard/MousePositionContext';
 import { gridLines } from 'assets/colors';
 
 const addSquares = (gridArray, size) => gridArray.map((item, index) => (<Square
@@ -78,11 +79,24 @@ export default class Checkerboard extends Component {
     this.state = {
       ...getInitialBoard(props.size),
       size: props.size,
+      clientX: null,
+      clientY: null,
     };
   }
 
+  onMouseMove = (event) => {
+    const { clientX, clientY } = event;
+
+    this.setState({
+      clientX,
+      clientY,
+    });
+  };
+
   render() {
-    const { checkerboard, checkers, size } = this.state;
+    const {
+      checkerboard, checkers, size, clientX, clientY,
+    } = this.state;
 
     return (
       <Fragment>
@@ -97,9 +111,11 @@ export default class Checkerboard extends Component {
           }
         `}
         </style>
-        <div className="checkerboard-grid">
+        <div className="checkerboard-grid" onMouseMove={this.onMouseMove}>
           {checkerboard}
-          {checkers}
+          <MousePositionContext.Provider value={{ clientX, clientY }}>
+            {checkers}
+          </MousePositionContext.Provider>
         </div>
       </Fragment>
     );
