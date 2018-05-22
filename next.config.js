@@ -7,10 +7,12 @@ module.exports = withImages({
     const pathMap = {
       '/': { page: '/' },
     };
-    glob.sync('pages/**/*.js', { ignore: 'pages/_document.js' }).forEach((s) => {
+
+    glob.sync('pages/**/*.jsx', { ignore: 'pages/_document.jsx' }).forEach((s) => {
       const path = s.split(/(pages|\.)/)[2].replace(/^\/index$/, '/');
       pathMap[path] = { page: path };
     });
+
     return pathMap;
   },
 });

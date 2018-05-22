@@ -45,11 +45,16 @@ const addCheckers = (gridArray, size) => gridArray.map((item, index) => {
 });
 
 const getInitialBoard = (size) => {
-  const gridArray = [...new Array(size * size)];
+  let safeSize = size;
+  if (!safeSize || !Number.isInteger(safeSize)) {
+    safeSize = 0;
+  }
+
+  const gridArray = [...new Array(safeSize * safeSize)];
 
   return {
-    checkerboard: addSquares(gridArray, size),
-    checkers: addCheckers(gridArray, size),
+    checkerboard: addSquares(gridArray, safeSize),
+    checkers: addCheckers(gridArray, safeSize),
   };
 };
 
