@@ -7,7 +7,8 @@
     "dev": "node server.js",
     "start": "NODE_ENV=production node server.js",
     "postinstall": "npm run build",
-    "build": "next build"
+    "build": "next build",
+    "export": "next export"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
   "dependencies": {
     "babel-plugin-module-resolver": "^3.1.1",
     "express": "^4.16.3",
+    "glob": "^7.1.2",
     "isomorphic-unfetch": "^2.0.0",
     "next": "^5.1.0",
     "next-images": "^0.10.2",
