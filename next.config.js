@@ -4,7 +4,9 @@ const glob = require('glob');
 
 module.exports = withImages({
   exportPathMap: () => {
-    const pathMap = {};
+    const pathMap = {
+      '/': { page: '/' },
+    };
     glob.sync('pages/**/*.js', { ignore: 'pages/_document.js' }).forEach((s) => {
       const path = s.split(/(pages|\.)/)[2].replace(/^\/index$/, '/');
       pathMap[path] = { page: path };
